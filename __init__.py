@@ -49,6 +49,7 @@ class VIEW3D_PT_RoadGenMenu(bpy.types.Panel):
         layout = self.layout
         scene = context.scene
         
+        layout.operator(LanesGen.bl_idname)
         layout.operator(RoadGen.bl_idname)
 
 class RoadGenMenu(bpy.types.Menu):
@@ -57,6 +58,7 @@ class RoadGenMenu(bpy.types.Menu):
     bl_description = ""
 
     def draw(self, context):
+        self.layout.operator(LanesGen.bl_idname)
         self.layout.operator(RoadGen.bl_idname)
 
 def road_type_list_func(scene, context):

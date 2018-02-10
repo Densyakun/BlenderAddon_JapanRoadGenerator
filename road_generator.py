@@ -316,12 +316,12 @@ def lanes_generate(ops, left_lanes, right_lanes, road_width, offset, invert):
     vb = None
 
     for v in zip(vs_n):
-        bm.verts.new(v)
+        nv = bm.verts.new(v)
 
         if vb != None:
-            bm.edges.new([vb, v]).select = True
+            bm.edges.new([vb, nv]).select = True
 
-        vb = v
+        vb = nv
 
     bmesh.update_edit_mesh(me)
     return True
